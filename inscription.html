@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription - CurriculumVitae</title>
+    <link rel="stylesheet" href="cv.css">
+</head>
+<body>
+
+<header>
+    <div class="header-content">
+        <div class="logo">
+            <img src="images/logo.png" alt="Logo" class="logo-image"> <!-- Assurez-vous de mettre le bon chemin -->
+          
+        </div>
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="Apropos.html">À Propos</a></li>
+                <li><a href="inscription.html">Inscription</a></li>
+                <li><a href="login.html">Connexion</a></li>
+                <li><a href="logout.html">Déconnexion</a></li>
+                <li><a href="genererCV.html" class="bnt">Commencer</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <h2>Inscription</h2>
+    <div class="registration-container">
+        <form id="registration-form">
+            <label for="username">Nom d'utilisateur *</label>
+            <input type="text" id="username" placeholder="Votre nom d'utilisateur" required>
+
+            <label for="email">Email *</label>
+            <input type="email" id="email" placeholder="Votre email" required>
+
+            <label for="password">Mot de passe *</label>
+            <input type="password" id="password" placeholder="Votre mot de passe" required>
+
+            <label for="confirm-password">Confirmer le mot de passe *</label>
+            <input type="password" id="confirm-password" placeholder="Confirmez votre mot de passe" required>
+
+            <button type="submit">S'inscrire</button>
+        </form>
+        <p>Vous avez déjà un compte ? <a href="login.html">Connectez-vous ici</a></p>
+    </div>
+    <div class="contact"> 
+        <p style="color: white;background-color: gray;border-radius: 15px;height:  45px;width: 120px; margin: 10px;border: none;text-align: center;align-items: center;padding: 5px;">Contactez-nous</p>
+        <p style="color: grey;">Adresse: Mermoz, villa 7606, Dakar BP 15391 Dakar, 413.</p>
+        <p style="color: grey;">Téléphone: 78 1564579</p>
+        <p style="color: grey;">Email: GroupeCurriculumVitae@gmail.com</p>
+        <p style="color: grey;">Heures d'ouverture: Lundi au Vendredi de 9h à 17h</p>
+    </div>
+</main>
+
+<footer>
+    <p>&copy; 2025 CurriculumVitae. Tous droits réservés.</p>
+</footer>
+
+</body>
+</html>

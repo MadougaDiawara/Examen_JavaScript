@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Générateur de CV</title>
+
+<link rel="stylesheet" href="cv.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="header-content">
+
+<div class="logo">
+
+<img src="images/logo.png" alt="Logo" class="logo-image"> <!-- Assurez-vous de mettre le bon chemin -->
+
+</div>
+
+<nav class="navbar">
+
+<ul>
+
+<li><a href="index.html">Accueil</a></li>
+
+<li><a href="Apropos.html">À Propos</a></li>
+
+<li><a href="inscription.html">Inscription</a></li>
+
+<li><a href="login.html">Connexion</a></li>
+
+<li><a href="logout.html">Déconnexion</a></li>
+
+<li><a href="genererCV.html"class="bnt">Commencer</a></li>
+
+</ul>
+
+</nav>
+
+</div>
+
+</header>
+
+<main class="main-content">
+
+<div class="container left-aligned">
+
+    <h2>Choisir un modèle de CV</h2>
+    <select id="cvTemplate" onchange="changeTemplate()">
+        <option value="template1">Modèle 1</option>
+        <option value="template2">Modèle 2</option>
+        <option value="template3">Modèle 3</option>
+    </select>
+
+    <h2>Informations Personnelles</h2>
+    <label for="fullName">Nom complet *</label>
+    <input type="text" id="fullName" placeholder="Votre nom complet" required>
+
+    <label for="birthDate">Date de naissance</label>
+<input type="date" id="birthDate" placeholder="Votre date de naissance">
+
+<label for="birthPlace">Lieu de naissance</label>
+<input type="text" id="birthPlace" placeholder="Votre lieu de naissance">
+
+    <label for="profession">Profession</label>
+    <input type="text" id="profession" placeholder="Votre profession">
+
+    <label for="email">Email *</label>
+    <input type="email" id="email" placeholder="Votre email" required>
+
+    <label for="phone">Téléphone *</label>
+    <input type="text" id="phone" placeholder="Votre téléphone" required>
+
+    <label for="address">Adresse</label>
+    <input type="text" id="address" placeholder="Votre adresse">
+
+    <label for="city">Ville</label>
+    <input type="text" id="city" placeholder="Votre ville">
+
+    <label for="profilePhoto">Photo de profil</label>
+    <input type="file" id="profilePhoto">
+
+    <h2>Formation</h2>
+    <div id="education-section">
+        <div class="education-entry">
+            <label for="degree">Diplôme *</label>
+            <input type="text" class="degree" placeholder="Votre diplôme" required>
+
+            <label for="institution">Établissement *</label>
+            <input type="text" class="institution" placeholder="Nom de l'établissement" required>
+
+            <label for="eduCity">Ville</label>
+            <input type="text" class="eduCity" placeholder="Ville de l'établissement">
+
+            <label for="startDateEdu">Date de début</label>
+            <input type="date" class="startDateEdu">
+
+            <label for="endDateEdu">Date de fin (ou en cours)</label>
+            <input type="date" class="endDateEdu">
+
+            <label for="eduDescription">Description</label>
+            <textarea class="eduDescription" placeholder="Description de la formation"></textarea>
+
+            <button type="button" onclick="removeEducation(this)">Supprimer</button>
+        </div>
+    </div>
+    <button type="button" onclick="addEducation()">+ Ajouter une formation</button>
+
+    <h2>Expérience Professionnelle</h2>
+    <div id="experience-section">
+        <div class="experience-entry">
+            <label for="position">Poste *</label>
+            <input type="text" class="position" placeholder="Votre poste" required>
+
+            <label for="company">Entreprise *</label>
+            <input type="text" class="company" placeholder="Nom de l'entreprise" required>
+
+            <label for="expCity">Ville</label>
+            <input type="text" class="expCity" placeholder="Ville de l'entreprise">
+
+            <label for="startDateExp">Date de début *</label>
+            <input type="date" class="startDateExp" required>
+
+            <label for="endDateExp">Date de fin (ou en cours)</label>
+            <input type="date" class="endDateExp">
+
+            <label for="expDescription">Description des missions *</label>
+            <textarea class="expDescription" placeholder="Description des missions" required></textarea>
+
+            <button type="button" onclick="removeExperience(this)">Supprimer</button>
+        </div>
+    </div>
+    <button type="button" onclick="addExperience()">+ Ajouter une expérience</button>
+
+    <h2>Compétences</h2>
+    <div id="skills-section">
+        <div class="skill-entry">
+            <label for="skill">Compétence *</label>
+            <input type="text" class="skill" placeholder="Votre compétence" required>
+
+            <label for="skillLevel">Niveau</label>
+            <select class="skillLevel">
+                <option value="Débutant">Débutant</option>
+                <option value="Intermédiaire">Intermédiaire</option>
+                <option value="Avancé">Avancé</option>
+            </select>
+
+            <button type="button" onclick="removeSkill(this)">Supprimer</button>
+        </div>
+    </div>
+    <button type="button" onclick="addSkill()">+ Ajouter une compétence</button>
+
+    <h2>Langues</h2>
+    <div id="languages-section">
+        <div class="language-entry">
+            <label for="language">Langue *</label>
+            <input type="text" class="language" placeholder="Votre langue" required>
+
+            <label for="languageLevel">Niveau</label>
+            <select class="languageLevel">
+                <option value="A1">A1 - Débutant</option>
+                <option value="A2">A2 - Élémentaire</option>
+                <option value="B1">B1 - Intermédiaire</option>
+                <option value="B2">B2 - Intermédiaire supérieur</option>
+                <option value="C1">C1 - Avancé</option>
+                <option value="C2">C2 - Maîtrise</option>
+            </select>
+
+            <button type="button" onclick="removeLanguage(this)">Supprimer</button>
+        </div>
+    </div>
+    <button type="button" onclick="addLanguage()">+ Ajouter une langue</button>
+
+    <h2>Centres d'intérêt</h2>
+    <div id="interests-section">
+        <div class="interest-entry">
+            <label for="interest">Centre d'intérêt</label>
+            <input type="text" class="interest" placeholder="Votre centre d'intérêt">
+
+            <button type="button" onclick="removeInterest(this)">Supprimer</button>
+        </div>
+    </div>
+    <button type="button" onclick="addInterest()">+ Ajouter un centre d'intérêt</button>
+
+    
+    <button id="generate-btn" onclick="generateCV()">Générer PDF</button>
+    <button id="download-btn" onclick="downloadCV()" style="display: none;">Télécharger PDF</button>
+    <button id="download-word-btn" onclick="downloadCVWord()" style="display: none;">Télécharger Word</button>
+    <button id="delete-btn" onclick="deleteCV()" style="display: none;">Supprimer le CV</button>
+
+    <div id="cv-output"></div>
+</div>
+</main>
+
+    <!-- Section Contactez-nous déplacée ici -->
+    <div class="contact">
+        <h3></h3>
+        <p style="color: white; background-color: gray; border-radius: 15px; height: 45px; width: 120px; margin: 10px; border: none; text-align: center; align-items: center; padding: 5px;">Contactez-nous</p>
+        <p style="color: grey;">Adresse: Mermoz, villa 7606, Dakar BP 15391 Dakar, 413.</p>
+        <p style="color: grey;">Téléphone: 78 1564579</p>
+        <p style="color: grey;">Email: GroupeCurriculumVitae@gmail.com</p>
+        <p style="color: grey;">Heures d'ouverture: Lundi au Vendredi de 9h à 17h</p>
+    </div>
+<footer>
+
+<p>&copy; 2025 CurriculumVitae. Tous droits réservés.</p>
+
+</footer>
+
+<script src="cv.js"></script>
+
+</body>
+
+</html>

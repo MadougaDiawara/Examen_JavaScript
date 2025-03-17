@@ -1,0 +1,203 @@
+body {
+    font-family: Arial, sans-serif;
+    color: blue; /* Couleur du texte */
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: auto; /* Changer à auto pour permettre à la page de s'étendre avec le contenu */
+    min-height: 100vh; /* Assurez-vous que le corps prend au moins la hauteur de la fenêtre */
+}
+
+header {
+    background-image: url('images/image01.jpg'); /* Image de fond pour l'en-tête */
+    background-size: cover; /* S'assure que l'image couvre tout l'espace */
+    background-position: center; /* Centre l'image dans l'en-tête */
+    height: 400px; /* Augmentez la hauteur selon vos besoins */
+    padding: 0; /* Supprimez le padding pour que l'image soit pleine */
+    margin: 0; /* Supprimez la marge pour que l'image soit pleine */
+    position: relative; /* Positionnement relatif pour le contenu */
+}
+
+
+.header-content {
+    display: flex;
+    justify-content: space-between; /* Espace entre le logo et la navigation */
+    align-items: center;
+    padding: 20px;
+}
+
+.logo-image {
+    width: 150px; /* Augmentez la taille du logo */
+    height: auto;
+    animation: bounce 2s infinite; /* Animation pour le logo */
+    margin-right: 20px; /* Espacement à droite du logo */
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+.main-content {
+    text-align: center;
+    margin-top: 20px;
+    padding-bottom: 60px; /* Ajoutez un padding pour éviter que le contenu soit caché par le footer */
+}
+
+h2 {
+    font-size: 1.5em;
+}
+
+.navbar ul {
+    display: flex; /* Utilise flexbox pour la navigation */
+    list-style-type: none; /* Supprime les puces */
+    margin: 0; /* Supprime la marge par défaut */
+    padding: 0; /* Supprime le padding par défaut */
+}
+
+.navbar li {
+    margin-left: 20px; /* Espace entre les éléments de la navigation */
+}
+
+.navbar a {
+    color: grey; /* Couleur du texte */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease; /* Transition pour un effet de survol */
+    font-size: 20px;
+
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+}
+
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centre les éléments horizontalement */
+    justify-content: center; /* Centre les éléments verticalement */
+    margin: 20px auto; /* Marge automatique pour centrer le conteneur */
+    width: 400px; /* Largeur fixe pour le formulaire */
+    padding: 20px;
+    background-color: #f9f9f9; /* Couleur de fond */
+    border: 1px solid #ccc; /* Bordure */
+    border-radius: 10px; /* Coins arrondis */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre */
+}
+
+#login-form label {
+    margin-top: 10px; /* Espace entre les labels et les champs */
+}
+
+#login-form input {
+    margin-bottom: 15px; /* Espace entre les champs de saisie */
+    padding: 10px; /* Espacement interne pour les champs */
+    width: 100%; /* Prend toute la largeur du conteneur */
+}
+.contact {
+    text-align: left; /* Aligner à gauche */
+    margin: 20px 0;
+}
+
+.container.left-aligned {
+    width: 66%; /* Ajustez la largeur selon vos besoins */
+    max-width: 800px; /* Largeur maximale pour les grands écrans */
+    height: auto; /* Hauteur automatique pour s'adapter au contenu */
+    margin-left: 20px; /* Espace à gauche */
+    padding: 20px; /* Espacement interne */
+    background-color: #f9f9f9; /* Couleur de fond pour la démarcation */
+    border: 1px solid #ccc; /* Bordure pour délimiter */
+    border-radius: 10px; /* Coins arrondis */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre pour un effet de profondeur */
+    float: left; /* Alignement à gauche */
+    overflow-y: auto; /* Ajoutez une barre de défilement verticale si nécessaire */
+}
+
+
+.hero {
+    color: #000;
+    text-align: center;
+    padding: 50px 20px;
+    height: 100vh;
+    background: #f9f9f9;
+}
+
+.hero h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+.hero img {
+    width: 40%;
+    height: 90vh;
+    margin-top: 20px;
+    left: 50%;
+}
+.btn {
+    background: #007bff;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.main-content {
+    overflow: auto; /* Pour s'assurer que le conteneur englobe les éléments flottants */
+}
+.registration-container {
+    display: flex; /* Utiliser flexbox pour aligner les éléments */
+    flex-direction: column; /* Aligner les éléments verticalement */
+    align-items: center; /* Centre les éléments horizontalement */
+    justify-content: center; /* Centre les éléments verticalement */
+    margin: 20px auto; /* Marge automatique pour centrer le conteneur */
+    width: 450px; /* Largeur fixe pour le formulaire */
+    height: 250px;
+    padding: 30px; /* Espacement interne */
+    background-color: #f9f9f9; /* Couleur de fond */
+    border: 1px solid #ccc; /* Bordure */
+    border-radius: 10px; /* Coins arrondis */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre */
+}
+
+
+
+footer {
+    text-align: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    position: relative; /* Changez à relative pour qu'il se déplace avec le contenu */
+    width: 100%;
+    bottom: 0;
+    height: 20px;
+    border-radius: 10px;
+  
+}
+
+/* Animation d'apparition du texte */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fade-in {
+    animation: fadeIn 2s;
+}
